@@ -1,3 +1,5 @@
+dist: bionic
+
 matrix:
   include:
     - os: linux
@@ -54,7 +56,8 @@ install:
 - cmake -DBUILD_SAMPLE=1 -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE -DCMAKE_INSTALL_PREFIX=. -DTARGET_CPU=$TARGET_CPU ..
 
 script:
-- make -j 4 package
+    #- make -j 4 package
+- make package
 
 before_deploy:
   - export TRAVIS_ARTIFACTS=$(ls libwebrtc-*.tar.gz)
